@@ -7,7 +7,7 @@
   <directives>
     <directive> --ntasks={{ total_tasks }}</directive>
     <directive> --export=ALL</directive>
-    <directive> --switches=1</directive>
+    <directive> --network=single_node_vni</directive>
   </directives>
   <directives queue = "normal">
     <directive> --partition=normal</directive>

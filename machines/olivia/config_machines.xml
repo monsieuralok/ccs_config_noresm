@@ -19,7 +19,7 @@
     <executable></executable>
   </mpirun>
   <mpirun mpilib="default">
-    <executable>srun --kill-on-bad-exit --label --mpi=pmix</executable>
+    <executable>srun --mpi=pmix</executable>
   </mpirun>
   <module_system type="module" allow_error="true">
     <init_path lang="perl">$ENV{LMOD_PKG}/init/perl</init_path>
