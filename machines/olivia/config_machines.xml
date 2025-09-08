@@ -45,7 +45,7 @@
       <command name="--force purge"></command>
       <command name="load">NRIS/CPU</command>
       <command name="use">/cluster/projects/nn9560k/alok/software/modules/all</command>
-      <command name="load">git/2.45.1-GCCcore-13.3.0</command>
+      <command name="load">git/2.42.0-GCCcore-13.2.0</command>
       <command name="load">ESMF/8.8.0-foss-2023b-ParallelIO-2.6.5</command>
       <command name="load">ParMETIS/4.0.3-gompi-2023b</command>
       <command name="load">Python/3.11.5-GCCcore-13.2.0</command>
