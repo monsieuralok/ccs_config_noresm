@@ -5,7 +5,7 @@ set(NETCDF_C_PATH	$ENV{EBROOTNETCDF})
 set(NETCDF_FORTRAN_PATH $ENV{EBROOTNETCDFMINFORTRAN})
 set(PNETCDF_PATH	$ENV{PNETCDF})
 
-string(APPEND SLIBS " -mkl")
+string(APPEND SLIBS " -mkl=cluster")
 
 if(DEFINED ENV{PIO})
   set(PIO_LIBDIR "$ENV{PIO}/lib")
@@ -22,9 +22,9 @@ if (COMP_WAV STREQUAL ww3)
 endif() 
 
 if (MPILIB STREQUAL iimpi)
- set(MPICC "mpiicc")
- set(MPICXX "mpiicpc")
- set(MPIFC "mpiifort")
+ set(MPICC "mpiicx")
+ set(MPICXX "mpiicpx")
+ set(MPIFC "mpiifx")
 endif()
 
 if (MPILIB STREQUAL openmpi)

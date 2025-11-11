@@ -11,14 +11,16 @@
   </directives>
   <directives queue = "normal">
     <directive> --partition=normal</directive>
+    <directive> --mem-per-cpu=2700M</directive>
   </directives>
   <directives queue = "devel">
     <directive> --partition=normal</directive>
+    <directive> --mem-per-cpu=2700M</directive>
     <directive> --qos=devel</directive>
   </directives>
   <directives queue = "preproc">
     <directive> --partition=normal</directive>
-    <directive> --mem-per-cpu=1900M</directive>
+    <directive> --mem-per-cpu=2700M</directive>
     <directive> --cpus-per-task=1</directive>
   </directives>
     <queues>

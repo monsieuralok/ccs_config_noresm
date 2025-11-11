@@ -1,8 +1,8 @@
 <machine MACH="olivia">
   <DESC> BullSequana XH2000 AMD® Epyc™ "Rome" 2.2GHz, 128-way nodes, os is Linux, batch system is SLURM</DESC>
   <OS>LINUX</OS>
-  <COMPILERS>gnu,intel</COMPILERS>
-  <MPILIBS>openmpi,iimpi</MPILIBS>
+  <COMPILERS>intel,gnu</COMPILERS>
+  <MPILIBS>iimpi,openmpi</MPILIBS>
   <CIME_OUTPUT_ROOT>/cluster/work/projects/nn9560k/$USER/noresm/</CIME_OUTPUT_ROOT>
   <DIN_LOC_ROOT>/cluster/work/projects/nn9560k/inputdata/</DIN_LOC_ROOT>
   <DIN_LOC_ROOT_CLMFORC>/cluster/work/projects/nn9560k/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
@@ -12,14 +12,17 @@
   <GMAKE_J>8</GMAKE_J>
   <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
   <SUPPORTED_BY>noresmCommunity</SUPPORTED_BY>
-  <MAX_TASKS_PER_NODE>128</MAX_TASKS_PER_NODE>
-  <MAX_MPITASKS_PER_NODE>128</MAX_MPITASKS_PER_NODE>
+  <MAX_TASKS_PER_NODE>256</MAX_TASKS_PER_NODE>
+  <MAX_MPITASKS_PER_NODE>256</MAX_MPITASKS_PER_NODE>
   <PROJECT_REQUIRED>TRUE</PROJECT_REQUIRED>
   <mpirun mpilib="mpi-serial">
     <executable></executable>
   </mpirun>
-  <mpirun mpilib="default">
+  <mpirun mpilib="openmpi">
     <executable>srun --mpi=pmix</executable>
+  </mpirun>
+  <mpirun mpilib="iimpi">
+    <executable>srun </executable>
   </mpirun>
   <module_system type="module" allow_error="true">
     <init_path lang="perl">$ENV{LMOD_PKG}/init/perl</init_path>
@@ -30,27 +33,25 @@
     <cmd_path lang="python">$ENV{LMOD_PKG}/libexec/lmod python</cmd_path>
     <cmd_path lang="sh">module</cmd_path>
     <cmd_path lang="csh">module</cmd_path>
-    <modules compiler="intel" mpilib='iimpi'>
+    <modules compiler="intel" mpilib="iimpi">
       <command name="--force purge"></command>
       <command name="load">NRIS/CPU</command>
-      <command name="use">/cluster/projects/nn9560k/alok/software/modules/all</command>
-      <command name="load">git/2.41.0-GCCcore-12.3.0-nodocs</command>
-      <command name="load">ESMF/8.8.0-iimpi-2023a-ParallelIO-2.6.5</command>
-      <command name="load">ParMETIS/4.0.3-iimpi-2023a</command>
-      <command name="load">Python/3.11.3-GCCcore-12.3.0</command>
-      <command name="load">CMake/3.26.3-GCCcore-12.3.0</command>
-      <command name="load">XML-LibXML/2.0209-GCCcore-12.3.0</command>
+      <command name="use">/cluster/projects/nn9560k/software/modules/all/</command>
+      <command name="load">git/2.45.1-GCCcore-13.3.0</command>
+      <command name="load">ESMF/8.8.0-intel-2024a-iimpi-ParallelIO-2.6.5</command>
+      <command name="load">Python/3.12.3-GCCcore-13.3.0</command>
+      <command name="load">CMake/3.29.3-GCCcore-13.3.0</command>
+      <command name="load">XML-LibXML/2.0210-GCCcore-13.3.0</command>
     </modules>
     <modules compiler='gnu' mpilib='openmpi'>
       <command name="--force purge"></command>
       <command name="load">NRIS/CPU</command>
-      <command name="use">/cluster/projects/nn9560k/alok/software/modules/all</command>
-      <command name="load">git/2.42.0-GCCcore-13.2.0</command>
-      <command name="load">ESMF/8.8.0-foss-2023b-ParallelIO-2.6.5</command>
-      <command name="load">ParMETIS/4.0.3-gompi-2023b</command>
-      <command name="load">Python/3.11.5-GCCcore-13.2.0</command>
-      <command name="load">CMake/3.27.6-GCCcore-13.2.0</command>
-      <command name="load">XML-LibXML/2.0210-GCCcore-13.2.0</command>
+      <command name="use">/cluster/projects/nn9560k/software/modules/all/</command>
+      <command name="load">git/2.45.1-GCCcore-13.3.0</command>
+      <command name="load">ESMF/8.8.0-foss-2024a-ParallelIO-2.6.5</command>
+      <command name="load">Python/3.12.3-GCCcore-13.3.0</command>
+      <command name="load">CMake/3.29.3-GCCcore-13.3.0</command>
+      <command name="load">XML-LibXML/2.0210-GCCcore-13.3.0</command>
     </modules>
   </module_system>
   <environment_variables>
@@ -63,8 +64,9 @@
     <env name="PIO_INCDIR">$ENV{EBROOTPARALLELIO}/include</env>
     <env name="PIO_TYPENAME_VALID_VALUES">pnetcdf,netcdf,netcdf4p,netcdf4c</env>
     <env name="LD_LIBRARY_PATH">$ENV{LD_LIBRARY_PATH}:$ENV{LIBRARY_PATH}</env>
-    <!--env name="OMPI_MCA_fs_lustre_stripe_size">1048576</env-->
-    <!--env name="OMPI_MCA_fs_lustre_stripe_width">8</env-->
+    <env name="OMPI_MCA_fs_lustre_stripe_size">1048576</env>
+    <env name="OMPI_MCA_fs_lustre_stripe_width">8</env>
+    <env name="OMPI_MCA_fs">^gpfs</env>
   </environment_variables>
   <environment_variables compiler="intel">
     <env name="CPRNC_PREF">/cluster/shared/noresm/tools/iomkl22a</env>
