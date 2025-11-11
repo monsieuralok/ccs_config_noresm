@@ -67,10 +67,9 @@
     <env name="PIO_INCDIR">$ENV{EBROOTPARALLELIO}/include</env>
     <env name="PIO_TYPENAME_VALID_VALUES">pnetcdf,netcdf,netcdf4p,netcdf4c</env>
     <env name="OMPI_MCA_mpi_leave_pinned">1</env>
-    <env name="OMPI_MCA_btl">self,vader</env>
     <env name="OMPI_MCA_rmaps_rank_file_physical">1</env>
     <env name="OMPI_MCA_coll_hcoll_enable">1</env>
-    <env name="OMPI_MCA_coll">^fca</env>
+    <env name="UCX_TLS">^tcp</env>
     <env name="OMPI_MCA_coll_hcoll_priority">95</env>
     <env name="OMPI_MCA_coll_hcoll_np">8</env>
     <env name="OMPI_MCA_io">ompio</env>
