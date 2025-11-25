@@ -27,6 +27,13 @@
     <grid name="wav"       compset="XWAV"        >ww3a</grid>
   </model_grid_defaults>
 
+  <model_grid alias="g16_g16" compset="DATM.+DROF">
+    <grid name="atm">gx1v6</grid>
+    <grid name="lnd">gx1v6</grid>
+    <grid name="ocnice">gx1v6</grid>
+    <support>Non-standard grid for testing of the interpolation in DATM rather than coupler</support>
+  </model_grid>
+
   <!-- ======================================== -->
   <!-- Section: CTSM single point grids -->
   <!-- ======================================== -->

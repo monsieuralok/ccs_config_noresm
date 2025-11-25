@@ -19,6 +19,11 @@
 
   <server>
     <protocol>wget</protocol>
+    <address>https://osdf-data.gdex.ucar.edu/ncar/gdex/d651077/cesmdata/inputdata/</address>
+  </server>
+
+  <server>
+    <protocol>wget</protocol>
     <address>https://ftp.cgd.ucar.edu/cesm/inputdata/</address>
     <checksum>../inputdata_checksum.dat</checksum>
   </server>
