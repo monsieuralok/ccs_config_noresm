@@ -2,7 +2,7 @@
   <DESC> BullSequana XH2000 AMD® Epyc™ "Rome" 2.2GHz, 128-way nodes, os is Linux, batch system is SLURM</DESC>
   <OS>LINUX</OS>
   <COMPILERS>intel,gnu</COMPILERS>
-  <MPILIBS>iimpi,openmpi</MPILIBS>
+  <MPILIBS>oneapi,openmpi</MPILIBS>
   <CIME_OUTPUT_ROOT>/cluster/work/projects/nn9560k/$USER/noresm/</CIME_OUTPUT_ROOT>
   <DIN_LOC_ROOT>/cluster/work/projects/nn9560k/inputdata/</DIN_LOC_ROOT>
   <DIN_LOC_ROOT_CLMFORC>/cluster/work/projects/nn9560k/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
@@ -21,7 +21,7 @@
   <mpirun mpilib="openmpi">
     <executable>srun --mpi=pmix</executable>
   </mpirun>
-  <mpirun mpilib="iimpi">
+  <mpirun mpilib="oneapi">
     <executable>srun </executable>
   </mpirun>
   <module_system type="module" allow_error="true">
@@ -33,7 +33,7 @@
     <cmd_path lang="python">$ENV{LMOD_PKG}/libexec/lmod python</cmd_path>
     <cmd_path lang="sh">module</cmd_path>
     <cmd_path lang="csh">module</cmd_path>
-    <modules compiler="intel" mpilib="iimpi">
+    <modules compiler="intel" mpilib="oneapi">
       <command name="--force purge"></command>
       <command name="load">NRIS/CPU</command>
       <command name="use">/cluster/projects/nn9560k/software/modules/all/</command>
@@ -42,6 +42,7 @@
       <command name="load">Python/3.12.3-GCCcore-13.3.0</command>
       <command name="load">CMake/3.29.3-GCCcore-13.3.0</command>
       <command name="load">XML-LibXML/2.0210-GCCcore-13.3.0</command>
+      <command name="load">NCO/5.2.9-intel-2024a</command>
     </modules>
     <modules compiler='gnu' mpilib='openmpi'>
       <command name="--force purge"></command>
@@ -69,10 +70,7 @@
     <env name="OMPI_MCA_fs">^gpfs</env>
   </environment_variables>
   <environment_variables compiler="intel">
-    <env name="CPRNC_PREF">/cluster/shared/noresm/tools/iomkl22a</env>
-  </environment_variables>
-  <environment_variables compiler="gnu">
-    <env name="CPRNC_PREF">/cluster/shared/noresm/tools/foss2023b</env>
+    <env name="CPRNC_PREF">/cluster/shared/noresm/tools/iimkl24a</env>
   </environment_variables>
   <resource_limits>
     <resource name="RLIMIT_STACK">-1</resource>

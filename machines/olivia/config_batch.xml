@@ -8,6 +8,7 @@
     <directive> --ntasks={{ total_tasks }}</directive>
     <directive> --export=ALL</directive>
     <directive> --network=single_node_vni</directive>
+    <directive> --exclusive</directive>
   </directives>
   <directives queue = "normal">
     <directive> --partition=normal</directive>
