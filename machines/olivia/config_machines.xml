@@ -1,5 +1,5 @@
 <machine MACH="olivia">
-  <DESC> BullSequana XH2000 AMD® Epyc™ "Rome" 2.2GHz, 128-way nodes, os is Linux, batch system is SLURM</DESC>
+  <DESC>HPE Cray Supercomputing EX, CPU AMD Epyc Turin, with 256 CPU cores per node, os is Linux, batch system is SLURM</DESC>
   <OS>LINUX</OS>
   <COMPILERS>intel,gnu</COMPILERS>
   <MPILIBS>oneapi,openmpi</MPILIBS>

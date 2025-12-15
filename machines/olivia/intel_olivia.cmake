@@ -42,7 +42,10 @@ if (MPILIB STREQUAL oneapi)
  set(SFC "ifx")
 endif()
 
+if (DEBUG)
 string(APPEND FFLAGS " -check nouninit") 
+endif()
+
 #if (DEBUG)
 #	string(APPEND SLIBS " -fsanitize=memory")
 #endif()
