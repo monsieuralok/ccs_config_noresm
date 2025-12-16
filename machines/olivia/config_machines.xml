@@ -19,10 +19,10 @@
     <executable></executable>
   </mpirun>
   <mpirun mpilib="openmpi">
-    <executable>srun --mpi=pmix</executable>
+    <executable>srun --mpi=pmix --label</executable>
   </mpirun>
   <mpirun mpilib="oneapi">
-    <executable>srun </executable>
+    <executable>srun --label</executable>
   </mpirun>
   <module_system type="module" allow_error="true">
     <init_path lang="perl">$ENV{LMOD_PKG}/init/perl</init_path>
