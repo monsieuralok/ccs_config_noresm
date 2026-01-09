@@ -14,6 +14,11 @@
 
   <server>
     <protocol>wget</protocol>
+    <address>https://osdf-data.gdex.ucar.edu/ncar/gdex/d651077/cesmdata/inputdata/</address>
+  </server>
+
+  <server>
+    <protocol>wget</protocol>
     <address>https://redoak.cs.toronto.edu/twitcher/ows/proxy/thredds/fileServer/datasets/CESM/inputdata/</address>
   </server>
 
