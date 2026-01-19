@@ -3,8 +3,20 @@
 # Batch system directives
 {{ batchdirectives }}
 #SBATCH  --mem-per-cpu=10000M
+
+machine=`./xmlquery --value MACH`
+echo $machine
+if [[ "$machine" == "olivia" ]]; then
+module purge
+module load Python/3.12.3-GCCcore-13.3.0
+module load NCO/5.2.9-intel-2024a
+elif [[ "$machine" == "betzy" ]]; then
 module purge
 module load NCO/5.1.9-iomkl-2022a
+else
+echo "no proper NCO"    
+exit
+fi
 
 ntasks=16
 
