@@ -19,14 +19,8 @@
     <directive> --mem-per-cpu=2700M</directive>
     <directive> --qos=devel</directive>
   </directives>
-  <directives queue = "preproc">
-    <directive> --partition=normal</directive>
-    <directive> --mem-per-cpu=1900M</directive>
-    <directive> --cpus-per-task=1</directive>
-  </directives>
     <queues>
       <queue walltimedef="00:59:00" walltimemax="96:00:00" nodemin="1" nodemax="1024" default="true">normal</queue>
-      <queue walltimedef="00:20:00"  walltimemax="23:59:00" jobmin="1" jobmax="32" default="true">preproc</queue>
       <queue walltimedef="00:59:00" walltimemax="00:59:00" nodemin="1" nodemax="1" >devel</queue>
     </queues>
 </batch_system>
