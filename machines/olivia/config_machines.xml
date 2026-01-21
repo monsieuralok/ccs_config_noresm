@@ -1,0 +1,75 @@
+<machine MACH="olivia">
+  <DESC>HPE Cray Supercomputing EX, CPU AMD Epyc Turin, with 256 CPU cores per node, os is Linux, batch system is SLURM</DESC>
+  <OS>LINUX</OS>
+  <COMPILERS>intel,gnu</COMPILERS>
+  <MPILIBS>oneapi,openmpi</MPILIBS>
+  <CIME_OUTPUT_ROOT>/cluster/work/projects/nn9560k/$USER/noresm/</CIME_OUTPUT_ROOT>
+  <DIN_LOC_ROOT>/cluster/work/projects/nn9560k/inputdata/</DIN_LOC_ROOT>
+  <DIN_LOC_ROOT_CLMFORC>/cluster/work/projects/nn9560k/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
+  <DOUT_S_ROOT>/cluster/work/projects/nn9560k/$USER/archive/$CASE</DOUT_S_ROOT>
+  <BASELINE_ROOT> /cluster/work/projects/nn9560k/noresm_baselines</BASELINE_ROOT>
+  <CCSM_CPRNC>$ENV{CPRNC_PREF}/bin/cprnc</CCSM_CPRNC>
+  <GMAKE_J>8</GMAKE_J>
+  <BATCH_SYSTEM>slurm</BATCH_SYSTEM>
+  <SUPPORTED_BY>noresmCommunity</SUPPORTED_BY>
+  <MAX_TASKS_PER_NODE>256</MAX_TASKS_PER_NODE>
+  <MAX_MPITASKS_PER_NODE>256</MAX_MPITASKS_PER_NODE>
+  <PROJECT_REQUIRED>TRUE</PROJECT_REQUIRED>
+  <mpirun mpilib="openmpi">
+    <executable>srun --mpi=pmix --label</executable>
+  </mpirun>
+  <mpirun mpilib="oneapi">
+    <executable>srun --label</executable>
+  </mpirun>
+  <module_system type="module" allow_error="true">
+    <init_path lang="perl">$ENV{LMOD_PKG}/init/perl</init_path>
+    <init_path lang="python">$ENV{LMOD_PKG}/init/env_modules_python.py</init_path>
+    <init_path lang="csh">$ENV{LMOD_PKG}/init/csh</init_path>
+    <init_path lang="sh">$ENV{LMOD_PKG}/init/sh</init_path>
+    <cmd_path lang="perl">$ENV{LMOD_PKG}/libexec/lmod perl</cmd_path>
+    <cmd_path lang="python">$ENV{LMOD_PKG}/libexec/lmod python</cmd_path>
+    <cmd_path lang="sh">module</cmd_path>
+    <cmd_path lang="csh">module</cmd_path>
+    <modules compiler="intel" mpilib="oneapi">
+      <command name="--force purge"></command>
+      <command name="load">NRIS/CPU</command>
+      <command name="use">/cluster/projects/nn9560k/software/modules/all/</command>
+      <command name="load">git/2.45.1-GCCcore-13.3.0</command>
+      <command name="load">ESMF/8.8.0-intel-2024a-iimpi-ParallelIO-2.6.5</command>
+      <command name="load">Python/3.12.3-GCCcore-13.3.0</command>
+      <command name="load">CMake/3.29.3-GCCcore-13.3.0</command>
+      <command name="load">XML-LibXML/2.0210-GCCcore-13.3.0</command>
+      <command name="load">NCO/5.2.9-intel-2024a</command>
+    </modules>
+    <modules compiler='gnu' mpilib='openmpi'>
+      <command name="--force purge"></command>
+      <command name="load">NRIS/CPU</command>
+      <command name="use">/cluster/projects/nn9560k/software/modules/all/</command>
+      <command name="load">git/2.45.1-GCCcore-13.3.0</command>
+      <command name="load">ESMF/8.8.0-foss-2024a-ParallelIO-2.6.5</command>
+      <command name="load">Python/3.12.3-GCCcore-13.3.0</command>
+      <command name="load">CMake/3.29.3-GCCcore-13.3.0</command>
+      <command name="load">XML-LibXML/2.0210-GCCcore-13.3.0</command>
+    </modules>
+  </module_system>
+  <environment_variables>
+    <env name="ESMFMKFILE">$ENV{EBROOTESMF}/lib/esmf.mk</env>
+    <env name="ESMF_RUNTIME_PROFILE">ON</env>
+    <env name="ESMF_RUNTIME_PROFILE_OUTPUT">SUMMARY</env>
+    <env name="MKL_DEBUG_CPU_TYPE">5</env>
+    <env name="PIO_VERSION_MAJOR">2</env>
+    <env name="PIO_LIBDIR">$ENV{EBROOTPARALLELIO}/lib</env>
+    <env name="PIO_INCDIR">$ENV{EBROOTPARALLELIO}/include</env>
+    <env name="PIO_TYPENAME_VALID_VALUES">pnetcdf,netcdf,netcdf4p,netcdf4c</env>
+    <env name="LD_LIBRARY_PATH">$ENV{LD_LIBRARY_PATH}:$ENV{LIBRARY_PATH}</env>
+    <env name="OMPI_MCA_fs_lustre_stripe_size">1048576</env>
+    <env name="OMPI_MCA_fs_lustre_stripe_width">8</env>
+    <env name="OMPI_MCA_fs">^gpfs</env>
+  </environment_variables>
+  <environment_variables compiler="intel">
+    <env name="CPRNC_PREF">/cluster/shared/noresm/tools/iimkl24a</env>
+  </environment_variables>
+  <resource_limits>
+    <resource name="RLIMIT_STACK">-1</resource>
+  </resource_limits>
+</machine>

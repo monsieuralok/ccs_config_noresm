@@ -55,6 +55,7 @@ This allows using a different mpirun command to launch unit tests
     <value MACH="aws-hpc6a">regular-dy-computehpc6a-.*</value>
     <value MACH="casper">$ENV{NCAR_HOST}:casper</value>
     <value MACH="betzy">.*.?betzy\d?.sigma2.no</value>
+    <value MACH="olivia">.*.?olivia\d?.sigma2.no</value>
     <value MACH="cheyenne">.*.?cheyenne\d?.ucar.edu</value>
     <value MACH="coeus">(login[1,2].cluster|compute[0-9]*.cluster)</value>
     <value MACH="derecho">$ENV{NCAR_HOST}:derecho</value>
