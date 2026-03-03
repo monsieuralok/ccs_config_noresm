@@ -8,19 +8,25 @@
     <directive> --ntasks={{ total_tasks }}</directive>
     <directive> --export=ALL</directive>
     <directive> --network=single_node_vni</directive>
-    <directive> --exclusive</directive>
   </directives>
-  <directives queue = "normal">
-    <directive> --partition=normal</directive>
+  <!-- default job type, meant for CPU-only jobs needing less than a whole node (< 256 CPUs) -->
+  <directives queue = "small">
+    <directive> --partition=small</directive>
     <directive> --mem-per-cpu=2700M</directive>
   </directives>
+  <!-- meant for larger CPU-only jobs, needing at least one node (> 256 CPUs) -->
+  <directives queue = "large">
+    <directive> --partition=large</directive>
+  </directives>
+  <!-- maximum walltime 2 hours -->
   <directives queue = "devel">
-    <directive> --partition=normal</directive>
+    <directive> --partition=small</directive>
     <directive> --mem-per-cpu=2700M</directive>
     <directive> --qos=devel</directive>
   </directives>
     <queues>
-      <queue walltimedef="00:59:00" walltimemax="96:00:00" nodemin="1" nodemax="1024" default="true">normal</queue>
-      <queue walltimedef="00:59:00" walltimemax="00:59:00" nodemin="1" nodemax="1" >devel</queue>
+      <queue walltimedef="00:59:00" walltimemax="144:00:00" nodemin="1" nodemax="1" default="true">small</queue>
+      <queue walltimedef="00:59:00" walltimemax="144:00:00" nodemin="2" nodemax="1024" default="true">large</queue>
+      <queue walltimedef="00:59:00" walltimemax="01:59:00" nodemin="1" nodemax="1" >devel</queue>
     </queues>
 </batch_system>
