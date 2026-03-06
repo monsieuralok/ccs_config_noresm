@@ -33,13 +33,12 @@
     <modules compiler="intel" mpilib="oneapi">
       <command name="--force purge"></command>
       <command name="load">NRIS/CPU</command>
-      <command name="use">/cluster/projects/nn9560k/software/modules/all/</command>
       <command name="load">git/2.45.1-GCCcore-13.3.0</command>
-      <command name="load">ESMF/8.8.0-intel-2024a-iimpi-ParallelIO-2.6.5</command>
+      <command name="load">ESMF/8.8.0-intel-2024a-ParallelIO-2.6.5</command>
       <command name="load">Python/3.12.3-GCCcore-13.3.0</command>
       <command name="load">CMake/3.29.3-GCCcore-13.3.0</command>
       <command name="load">XML-LibXML/2.0210-GCCcore-13.3.0</command>
-      <command name="load">NCO/5.2.9-intel-2024a</command>
+      <command name="load">NCO/5.2.9-intel-2024a-NorESM</command>
     </modules>
     <modules compiler='gnu' mpilib='openmpi'>
       <command name="--force purge"></command>
