@@ -38,7 +38,6 @@
       <command name="load">ESMF/8.8.0-iomkl-2022a-ParallelIO-2.6.5</command>
       <command name="load">NCO/5.1.9-iomkl-2022a-ESMF-8.8.0</command>
       <command name="load">ParMETIS/4.0.3-iompi-2022a</command>
-      <command name="load">Python/3.11.3-GCCcore-12.3.0</command>
       <command name="load">CMake/3.26.3-GCCcore-12.3.0</command>
       <command name="load">XML-LibXML/2.0209-GCCcore-12.3.0</command>
     </modules>
@@ -50,7 +49,6 @@
       <command name="load">ESMF/8.8.0-foss-2023b-ParallelIO-2.6.5</command>
       <command name="load">NCO/5.1.9-foss-2023b-ESMF-8.8.0</command>
       <command name="load">ParMETIS/4.0.3-gompi-2023b</command>
-      <command name="load">Python/3.11.5-GCCcore-13.2.0</command>
       <command name="load">CMake/3.27.6-GCCcore-13.2.0</command>
       <command name="load">XML-LibXML/2.0210-GCCcore-13.2.0</command>
     </modules>
