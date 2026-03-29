@@ -8,8 +8,9 @@ machine=`./xmlquery --value MACH`
 echo $machine
 if [[ "$machine" == "olivia" ]]; then
 module purge
+module load NRIS/CPU
 module load Python/3.12.3-GCCcore-13.3.0
-module load NCO/5.2.9-intel-2024a
+module load NCO/5.2.9-intel-2024a-NorESM
 elif [[ "$machine" == "betzy" ]]; then
 module purge
 module load NCO/5.1.9-iomkl-2022a
