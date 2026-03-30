@@ -19,7 +19,7 @@
     <grid name="rof"       compset="XROF"        >r05</grid>
 
     <grid name="glc"       compset="CISM2"       >gris4</grid>
-    <grid name="glc"       compset="DGLC"        >ais8d:gris4d</grid>
+    <grid name="glc"       compset="DGLC"        >ais8:gris4</grid>
     <grid name="glc"       compset="XGLC"        >gris4</grid>
 
     <grid name="wav"       compset="WW3"         >wtnx1v4</grid>
