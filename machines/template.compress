@@ -31,6 +31,7 @@ ZIPRES=0
 RMLOGS=0
 
 # archieve data
+caseroot=`./xmlquery --value CASEROOT`
 archivedata=`./xmlquery --value DOUT_S_ROOT`
 
 if [ ! -d $archivedata ]; then
@@ -41,7 +42,7 @@ cd $archivedata
 
 complevel=5 # 1-9
 lid="`date +%y%m%d-%H%M%S`"
-
+rsync -avh $caseroot $archivedata >> $archivedata/case.log.$lid
 # Functions
 
 convert_cmd () {
