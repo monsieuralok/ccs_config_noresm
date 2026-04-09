@@ -2,7 +2,7 @@
 
 # Batch system directives
 {{ batchdirectives }}
-#SBATCH  --mem-per-cpu=10000M
+
 
 machine=`./xmlquery --value MACH`
 echo $machine

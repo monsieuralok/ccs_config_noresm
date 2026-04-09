@@ -8,11 +8,11 @@
     <directive> --ntasks={{ total_tasks }}</directive>
     <directive> --export=ALL</directive>
     <directive> --network=single_node_vni</directive>
+    <directive> --mem={{ mem_per_node }}G</directive>
   </directives>
   <!-- default job type, meant for CPU-only jobs needing less than a whole node (< 256 CPUs) -->
   <directives queue = "small">
     <directive> --partition=small</directive>
-    <directive> --mem-per-cpu=2700M</directive>
   </directives>
   <!-- meant for larger CPU-only jobs, needing at least one node (> 256 CPUs) -->
   <directives queue = "large">
@@ -21,7 +21,6 @@
   <!-- maximum walltime 2 hours -->
   <directives queue = "devel">
     <directive> --partition=small</directive>
-    <directive> --mem-per-cpu=2700M</directive>
     <directive> --qos=devel</directive>
   </directives>
     <queues>
