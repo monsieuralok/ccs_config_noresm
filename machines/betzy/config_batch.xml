@@ -17,7 +17,7 @@
   </directives>
   <directives queue = "preproc">
     <directive> --partition=preproc</directive>
-    <directive> --mem-per-cpu=1900M</directive>
+    <directive> --mem={{ mem_per_node }}G</directive>
     <directive> --cpus-per-task=1</directive>
   </directives>
     <queues>
