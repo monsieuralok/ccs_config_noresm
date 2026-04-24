@@ -5,7 +5,7 @@
   <MPILIBS compiler="intel" >oneapi,openmpi</MPILIBS>
   <MPILIBS compiler="gnu">openmpi</MPILIBS>
   <CIME_OUTPUT_ROOT>/cluster/work/projects/$PROJECT/$ENV{USER}/noresm</CIME_OUTPUT_ROOT>
-  <DIN_LOC_ROOT>/cluster/work/projects/nn9560k/inputdata/</DIN_LOC_ROOT>
+  <DIN_LOC_ROOT>/cluster/cache/noresm/</DIN_LOC_ROOT>
   <DIN_LOC_ROOT_CLMFORC>/cluster/work/projects/nn9560k/inputdata/atm/datm7</DIN_LOC_ROOT_CLMFORC>
   <DOUT_S_ROOT>$CIME_OUTPUT_ROOT/../archive/$CASE</DOUT_S_ROOT>
   <BASELINE_ROOT> /cluster/work/projects/nn9560k/noresm_baselines</BASELINE_ROOT>
