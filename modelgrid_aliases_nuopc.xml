@@ -723,6 +723,11 @@
     <grid name="wav">ww3a</grid>
     <!-- only used for ADWAV testing -->
   </model_grid>
+  <model_grid alias="TL319_ww3a" not_compset="_CAM">
+     <grid name="atm">TL319</grid>
+     <grid name="wav">ww3a</grid>
+     <mask>tnx1v4</mask>
+  </model_grid>
   <model_grid alias="TL319_wtn14" not_compset="_CAM">
     <grid name="atm">TL319</grid>
     <grid name="wav">wtnx1v4</grid>
