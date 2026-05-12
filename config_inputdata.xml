@@ -24,11 +24,6 @@
 
   <server>
     <protocol>wget</protocol>
-    <address>https://osdf-data.gdex.ucar.edu/ncar/gdex/d651077/cesmdata/inputdata/</address>
-  </server>
-
-  <server>
-    <protocol>wget</protocol>
     <address>https://ftp.cgd.ucar.edu/cesm/inputdata/</address>
     <checksum>../inputdata_checksum.dat</checksum>
   </server>
@@ -37,11 +32,6 @@
     <comment> wget access to subversion </comment>
     <protocol>wget</protocol>
     <address>https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/</address>
-  </server>
-
-  <server>
-    <protocol>svn</protocol>
-    <address>https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata</address>
   </server>
 
   <server CLM_USRDAT_NAME="NEON">
