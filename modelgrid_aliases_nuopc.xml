@@ -357,7 +357,7 @@
     <mask>tnx1v4</mask>
   </model_grid>
 
-  <model_grid alias="ne16pg3_tn14_ais8gris4" compset="CISM2%AIS-EVOLVE%GRIS-EVOLVE">
+  <model_grid alias="ne16pg3_tn14_ais8gris4" compset="_CISM2%AIS-EVOLVE%GRIS-EVOLVE|_CISM2%AIS-NOEVOLVE%GRIS-EVOLVE|_CISM2%AIS-EVOLVE%GRIS-NOEVOLVE">
     <grid name="atm">ne16np4.pg3</grid>
     <grid name="lnd">ne16np4.pg3</grid>
     <grid name="ocnice">tnx1v4</grid>
