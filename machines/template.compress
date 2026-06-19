@@ -67,7 +67,7 @@ compress_cmd () {
 convert_loop () {
   set -e
   # loop over cases 
-  for ncfile in `find . -wholename '*/hist/${casename}*.nc' -print`; do
+  for ncfile in `find . -wholename "*/hist/${casename}*.nc" -print`; do
     if [[ "`ncdump -k $ncfile`" != 'netCDF-4' && "`ncdump -k $ncfile`" != 'netCDF-4 classic model' ]] ; then
       while :; do
         if [ `jobs -p|wc -l` -lt $ntasks ]; then
